@@ -1,0 +1,33 @@
+
+<div class="pageContent">
+  <form method="post" action="${ctxPath}/procreate/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+
+    <input type="hidden" id="id" name="id" value="${procreate.id!}">
+
+		<div class="pageFormContent" layoutH="56">
+			
+					<dl>
+		                <dt>名称</dt>
+		                <dd>
+		                <input name="name"  type="text" size="30" value="${procreate.name!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>备注</dt>
+		                <dd>
+		                <input name="memo"  type="text" size="30" value="${procreate.memo!}" alt=""/>
+		                </dd>
+		            </dl>
+	            			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>

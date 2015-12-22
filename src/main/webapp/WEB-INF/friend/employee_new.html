@@ -1,0 +1,161 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent">
+  <form method="post" action="${ctxPath}/friend/save" class="pageForm" data-toggle="validate">
+	  <div style="margin:5px auto 0; width:100%;">
+		  <div class="row" style="padding: 0 5px;">
+			  <div class="col-md-12">
+				  <div class="row">
+					  <div class="col-md-12">
+						  <div class="panel panel-default">
+							  <div class="panel-heading">
+								  <h4 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i>基本信息</h4>
+							  </div>
+							  <div class="panel-body" style="padding: 0px">
+
+								  <table class="table table-condensed table-hover" width="100%">
+									  <tbody>
+
+									  <tr>
+										  <td>
+											  <label for="j_no" class="control-label x85">编号</label>
+											  <input type="text" name="no" id="j_no" value="${employee.no!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_cnname" class="control-label x85">中文名</label>
+											  <input type="text" name="cnname" id="j_cnname" value="${employee.cnname!}" data-rule="" size="15">
+										  </td>
+									  </tr>
+
+									  <tr>
+										  <td>
+											  <label for="j_name" class="control-label x85">姓名</label>
+											  <input type="text" name="name" id="j_name" value="${employee.name!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_genderid" class="control-label x85">性别</label>
+											  <select id="j_genderid" name="genderid" class="combox">
+												  <%
+												  selected1 = "";
+												  for(obj in list_gender!)
+												  {
+												  if(isEmpty(employee.genderid) || obj.id != employee.genderid)
+												  {
+												  selected1="";
+												  }else{
+												  selected1 = "selected='selected'";
+												  }
+												  println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+												  }
+												  %>
+											  </select>
+										  </td>
+									  </tr>
+
+									  <tr>
+										  <td>
+											  <label for="j_nation" class="control-label x85">名族</label>
+											  <input type="text" name="nation" id="j_nation" value="${employee.nation!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_nativeplace" class="control-label x85">籍贯</label>
+											  <input type="text" name="nativeplace" id="j_nativeplace" value="${employee.nativeplace!}" data-rule="" size="15">
+										  </td>
+									  </tr>
+									  </tbody>
+								  </table>
+
+								  <!--<div style="min-width:400px;height:350px;" ></div>-->
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+			  <div class="col-md-12">
+				  <div class="row">
+					  <div class="col-md-12">
+						  <div class="panel panel-default">
+							  <div class="panel-heading"><h3 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i>基本信息</h3></div>
+							  <div class="panel-body" style="padding: 0px">
+
+								  <table class="table table-condensed table-hover" width="100%">
+									  <tbody>
+
+									  <tr>
+										  <td>
+											  <label for="j_no" class="control-label x85">编号</label>
+											  <input type="text" name="no" id="j_no" value="${employee.no!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_cnname" class="control-label x85">中文名</label>
+											  <input type="text" name="cnname" id="j_cnname" value="${employee.cnname!}" data-rule="" size="15">
+										  </td>
+									  </tr>
+
+									  <tr>
+										  <td>
+											  <label for="j_name" class="control-label x85">姓名</label>
+											  <input type="text" name="name" id="j_name" value="${employee.name!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_genderid" class="control-label x85">性别</label>
+											  <select id="j_genderid" name="genderid" class="combox">
+												  <%
+												  selected1 = "";
+												  for(obj in list_gender!)
+												  {
+												  if(isEmpty(employee.genderid) || obj.id != employee.genderid)
+												  {
+												  selected1="";
+												  }else{
+												  selected1 = "selected='selected'";
+												  }
+												  println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+												  }
+												  %>
+											  </select>
+										  </td>
+									  </tr>
+
+									  <tr>
+										  <td>
+											  <label for="j_nation" class="control-label x85">名族</label>
+											  <input type="text" name="nation" id="j_nation" value="${employee.nation!}" data-rule="" size="15">
+										  </td>
+
+										  <td>
+											  <label for="j_nativeplace" class="control-label x85">籍贯</label>
+											  <input type="text" name="nativeplace" id="j_nativeplace" value="${employee.nativeplace!}" data-rule="" size="15">
+										  </td>
+									  </tr>
+									  </tbody>
+								  </table>
+
+								  <!--<div style="min-width:400px;height:350px;" ></div>-->
+							  </div>
+						  </div>
+					  </div>
+				  </div>
+			  </div>
+
+		  </div>
+	  </div>
+
+
+
+  </form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

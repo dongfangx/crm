@@ -1,0 +1,78 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/workexperience/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${workexperience.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+	  <input type="hidden" name="friendid" value="${friendid!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_post" class="control-label x85">岗位</label>
+						<input type="text" name="post" id="j_post" value="${workexperience.post!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_corpname" class="control-label x85">公司名</label>
+						<input type="text" name="corpname" id="j_corpname" value="${workexperience.corpname!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_startdate" class="control-label x85">入职时间</label>
+
+						<input type="text" name="startdate" id="j_startdate" value="${workexperience.startdate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_enddate" class="control-label x85">离职时间</label>
+
+						<input type="text" name="enddate" id="j_enddate" value="${workexperience.enddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_content" class="control-label x85">工作内容</label>
+						<input type="text" name="content" id="j_content" value="${workexperience.content!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_memo" class="control-label x85">备注</label>
+						<input type="text" name="memo" id="j_memo" value="${workexperience.memo!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>
