@@ -1,0 +1,136 @@
+
+<%
+var selected1 = "";
+%>
+
+<div class="bjui-pageHeader">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/educationexperience?friendid=${friendid!}" method="post">
+
+
+		<input type="hidden" name="pageSize" value="${page.pageSize}" />
+		<input type="hidden" name="pageCurrent" value="${page.pageCurrent}" />
+
+		<div class="bjui-searchBar">
+
+				<label for="j_schoolname">学校名称：</label>
+				<input type="text"  id="j_schoolname" name="schoolname" value="${educationexperience.schoolname!}" class="form-control" size="10"/>
+
+			<button type="submit" class="btn-default" data-icon="search">查询</button>
+			<a id="resetJyjl" class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+
+			<div class="pull-right">
+
+				<a  href="${ctxPath}/educationexperience/edit?friendid=${friendid!}" class="btn btn-default" data-id="dialog_educationexperience_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true" data-on-close="jyjl_refresh">添加</a>
+
+				<a  href="${ctxPath}/educationexperience/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_educationexperience_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true" data-on-close="jyjl_refresh">编辑</a>
+
+				<a  href="${ctxPath}/educationexperience/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_educationexperience_edit" data-toggle="dialog"
+					data-width="500" data-height="300" data-mask="true" data-on-close="jyjl_refresh">复制添加</a>
+
+				<a href="${ctxPath}/educationexperience/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax"
+				   data-confirm-msg="确定要删除该行信息吗？" data-callback="jyjl_refresh">删</a>
+
+
+				&nbsp;&nbsp;
+			</div>
+
+		</div>
+
+	</form>
+</div>
+<div class="bjui-pageContent tableContent">
+	<table data-toggle="tablefixed" data-width="100%" >
+		<thead>
+		<tr>
+
+
+					<th width="50">编号</th>
+
+					<th>学校名称</th>
+
+					<th>学历</th>
+
+					<th>专业</th>
+
+					<th>毕业时间</th>
+
+					<th>入学时间</th>
+
+		</tr>
+		</thead>
+		<tbody>
+
+		<%
+        for(obj in list_obj){
+        %>
+
+            <tr data-id="${obj.id}">
+
+
+
+			<td>
+				 ${obj.id!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.schoolname!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.educationid!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.zhuanye!}
+			</td>
+
+
+
+			<td>
+				${obj.enddate!,'yyyy-MM-dd'}
+            </td>
+
+			<td>
+				${obj.startdate!,'yyyy-MM-dd'}
+            </td>
+            </tr>    
+         <%}%>   
+
+		</tbody>
+	</table>
+</div>
+
+<div class="bjui-pageFooter">
+	<div class="pages">
+		<span>每页&nbsp;</span>
+		<div class="selectPagesize">
+			<select data-toggle="selectpicker" data-toggle-change="changepagesize">
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+		</div>
+		<span>&nbsp;条，共 ${page.recordCount} 条</span>
+	</div>
+	<div class="pagination-box" data-toggle="pagination" data-total="${page.recordCount}" data-page-size="20" data-page-current="${page.pageNumber}">
+	</div>
+</div>
+
+<script style="text/javascript">
+	function jyjl_refresh()
+	{
+		$("#resetJyjl").click();
+	}
+</script>

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" monitoring="autodetect" dynamicConfig="false">
+
+    <diskStore path="java.io.tmpdir"/>
+
+    <defaultCache
+           maxElementsInMemory="1000"
+           eternal="true"
+           timeToIdleSeconds="3600"
+           timeToLiveSeconds="3600"
+           overflowToDisk="true"
+           diskSpoolBufferSizeMB="1" />
+
+    <!-- user -->
+    <cache name="user" maxElementsInMemory="1000"/>
+
+    <!-- menu -->
+    <cache name="menu" maxElementsInMemory="1000"/>
+
+    <!-- gender -->
+    <cache name="gender" maxElementsInMemory="1000"/>
+
+    <!-- worktype -->
+    <cache name="worktype" maxElementsInMemory="1000"/>
+
+    <!-- job -->
+    <cache name="job" maxElementsInMemory="1000"/>
+
+    <!-- level -->
+    <cache name="level" maxElementsInMemory="1000"/>
+
+    <!-- productline -->
+    <cache name="productline" maxElementsInMemory="1000"/>
+
+    <!-- productteam -->
+    <cache name="productteam" maxElementsInMemory="1000"/>
+
+    <!-- entrystate -->
+    <cache name="entrystate" maxElementsInMemory="1000"/>
+
+    <!-- education -->
+    <cache name="education" maxElementsInMemory="1000"/>
+
+    <!-- marital -->
+    <cache name="marital" maxElementsInMemory="1000"/>
+
+    <!-- blood -->
+    <cache name="blood" maxElementsInMemory="1000"/>
+
+    <!-- department -->
+    <cache name="department" maxElementsInMemory="1000"/>
+
+    <!-- friend -->
+    <cache name="friend" maxElementsInMemory="1000"/>
+
+    <!-- procreate -->
+    <cache name="procreate" maxElementsInMemory="1000"/>
+
+    <!-- party -->
+    <cache name="party" maxElementsInMemory="1000"/>
+
+    <!-- nativetype -->
+    <cache name="nativetype" maxElementsInMemory="1000"/>
+
+    <!-- ictype -->
+    <cache name="ictype" maxElementsInMemory="1000"/>
+
+    <!-- exitinfo -->
+    <cache name="exitinfo" maxElementsInMemory="1000"/>
+
+    <!-- positiontransfer -->
+    <cache name="positiontransfer" maxElementsInMemory="1000"/>
+
+    <!-- entry -->
+    <cache name="entry" maxElementsInMemory="1000"/>
+
+    <!-- raise -->
+    <cache name="raise" maxElementsInMemory="1000"/>
+
+    <!-- rewards -->
+    <cache name="rewards" maxElementsInMemory="1000"/>
+
+    <!-- positive -->
+    <cache name="positive" maxElementsInMemory="1000"/>
+
+    <!-- contract -->
+    <cache name="contract" maxElementsInMemory="1000"/>
+
+    <!-- educationexperience -->
+    <cache name="educationexperience" maxElementsInMemory="1000"/>
+
+    <!-- workexperience -->
+    <cache name="workexperience" maxElementsInMemory="1000"/>
+
+    <!-- familymembers -->
+    <cache name="familymembers" maxElementsInMemory="1000"/>
+
+    <!-- xmjinyan -->
+    <cache name="xmjinyan" maxElementsInMemory="1000"/>
+
+    <!-- jinengpj -->
+    <cache name="jinengpj" maxElementsInMemory="1000"/>
+
+    <!-- guanxi -->
+    <cache name="guanxi" maxElementsInMemory="1000"/>
+
+    <!-- pinlv -->
+    <cache name="pinlv" maxElementsInMemory="1000"/>
+
+    <!-- xinyong -->
+    <cache name="xinyong" maxElementsInMemory="1000"/>
+
+
+
+</ehcache>

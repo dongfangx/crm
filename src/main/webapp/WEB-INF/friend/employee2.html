@@ -1,0 +1,220 @@
+
+<div class="pageContent">
+  <form method="post" action="${ctxPath}/friend/save" class="pageForm required-validate" onsubmit="return validateCallback(this, dialogAjaxDone);">
+
+    <input type="hidden" id="id" name="id" value="${employee.id!}">
+
+		<div class="pageFormContent" layoutH="56">
+
+        <fieldset>
+            <legend>员工基本信息</legend>
+			
+					<dl>
+		                <dt>姓名</dt>
+		                <dd>
+		                <input name="name"  type="text" size="30" value="${employee.name!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>中文名</dt>
+		                <dd>
+		                <input name="cnname"  type="text" size="30" value="${employee.cnname!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>编号</dt>
+		                <dd>
+		                <input name="no"  type="text" size="30" value="${employee.no!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>联系电话</dt>
+		                <dd>
+		                <input name="phone"  type="text" size="30" value="${employee.phone!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>紧急联系人电话</dt>
+		                <dd>
+		                <input name="phone2"  type="text" size="30" value="${employee.phone2!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>紧急联系人</dt>
+		                <dd>
+		                <input name="linkman"  type="text" size="30" value="${employee.linkman!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>Email</dt>
+		                <dd>
+		                <input name="email"  type="text" size="30" value="${employee.email!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>Email(STM)</dt>
+		                <dd>
+		                <input name="emailwork"  type="text" size="30" value="${employee.emailwork!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>专业</dt>
+		                <dd>
+		                <input name="major"  type="text" size="30" value="${employee.major!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>毕业学校</dt>
+		                <dd>
+		                <input name="school"  type="text" size="30" value="${employee.school!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>毕业时间</dt>
+		                <dd>
+		                <input type="text" name="graduatetime" value="${employee.graduatetime!}" class="date" size="30" /><a class="inputDateButton" href="javascript:;">选择</a>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>起始工作时间</dt>
+		                <dd>
+		                <input type="text" name="startworkingdate" value="${employee.startworkingdate!}" class="date" size="30" /><a class="inputDateButton" href="javascript:;">选择</a>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>出生日期</dt>
+		                <dd>
+		                <input type="text" name="birthday" value="${employee.birthday!}" class="date" size="30" /><a class="inputDateButton" href="javascript:;">选择</a>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>年龄</dt>
+		                <dd>
+		                <input name="age"  type="text" size="30" value="${employee.age!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>国籍</dt>
+		                <dd>
+		                <input name="nationality"  type="text" size="30" value="${employee.nationality!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>名族</dt>
+		                <dd>
+		                <input name="nation"  type="text" size="30" value="${employee.nation!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>籍贯</dt>
+		                <dd>
+		                <input name="nativeplace"  type="text" size="30" value="${employee.nativeplace!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>职称</dt>
+		                <dd>
+		                <input name="title"  type="text" size="30" value="${employee.title!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>兴趣爱好</dt>
+		                <dd>
+		                <input name="hobby"  type="text" size="30" value="${employee.hobby!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>身高(cm)</dt>
+		                <dd>
+		                <input name="height"  type="text" size="30" value="${employee.height!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>体重(kg)</dt>
+		                <dd>
+		                <input name="weight"  type="text" size="30" value="${employee.weight!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>户口所在地</dt>
+		                <dd>
+		                <input name="homeadress"  type="text" size="30" value="${employee.homeadress!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>证件号码</dt>
+		                <dd>
+		                <input name="icno"  type="text" size="30" value="${employee.icno!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>签发机关</dt>
+		                <dd>
+		                <input name="issue"  type="text" size="30" value="${employee.issue!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>有效期限</dt>
+		                <dd>
+		                <input type="text" name="usefullife" value="${employee.usefullife!}" class="date" size="30" /><a class="inputDateButton" href="javascript:;">选择</a>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>证件地址</dt>
+		                <dd>
+		                <input name="idaddress"  type="text" size="30" value="${employee.idaddress!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>现居住地址</dt>
+		                <dd>
+		                <input name="address"  type="text" size="30" value="${employee.address!}" alt=""/>
+		                </dd>
+		            </dl>
+	            
+					<dl>
+		                <dt>备注</dt>
+		                <dd>
+		                <input name="memo"  type="text" size="30" value="${employee.memo!}" alt=""/>
+		                </dd>
+		            </dl>
+
+            </fieldset>
+	            			
+		</div>
+		<div class="formBar">
+			<ul>
+				<li><div class="buttonActive"><div class="buttonContent"><button type="submit">保存</button></div></div></li>
+				<li>
+					<div class="button"><div class="buttonContent"><button type="button" class="close">取消</button></div></div>
+				</li>
+			</ul>
+		</div>
+	</form>
+</div>
