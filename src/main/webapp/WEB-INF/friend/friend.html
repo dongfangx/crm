@@ -40,7 +40,7 @@ var selected1 = "";
 									  <tr>
 										  <td>
 											  <label for="j_guanxi" class="control-label x85">关系</label>
-											  <select id="j_guanxi" name="guanxi" data-toggle="selectpicker" data-width="200">
+											  <select id="j_guanxi" name="guanxiid" data-toggle="selectpicker" data-width="200">
 												  <%
 												  selected1 = "";
 												  for(obj in guanxiList!)
@@ -59,7 +59,7 @@ var selected1 = "";
 
 										  <td>
 											  <label for="j_xinyong" class="control-label x85">信用评级</label>
-											  <select id="j_xinyong" name="xinyong" data-toggle="selectpicker" data-width="200">
+											  <select id="j_xinyong" name="xinyongid" data-toggle="selectpicker" data-width="200">
 												  <%
 												  selected1 = "";
 												  for(obj in xinyongList!)
@@ -78,7 +78,7 @@ var selected1 = "";
 
 										  <td>
 											  <label for="j_pinlv" class="control-label x85">联系频率</label>
-											  <select id="j_pinlv" name="pinlv" data-toggle="selectpicker" data-width="200">
+											  <select id="j_pinlv" name="pinlvid" data-toggle="selectpicker" data-width="200">
 												  <%
 												  selected1 = "";
 												  for(obj in pinlvList!)
@@ -330,8 +330,13 @@ var selected1 = "";
 							  <div class="panel-body" style="padding: 0px">
 
 								  <ul class="nav nav-tabs" role="tablist">
+
 									  <li class="active">
-										  <a href="#workexperience" role="tab" data-toggle="tab">工作经历</a>
+										  <a href="#contact" role="tab" data-toggle="tab">交往记录</a>
+									  </li>
+
+									  <li>
+										  <a href="#workexperience" onclick="showGzjl()"  role="tab" data-toggle="tab" >工作经历</a>
 									  </li>
 
 									  <li>
@@ -350,8 +355,15 @@ var selected1 = "";
 								  </ul>
 
 								  <div class="tab-content" style="padding: 0px;">
+
+									  <!--交往记录-->
+									  <div class="tab-pane active in"  id="contact">
+										  <div data-url="${ctxPath}/contact?friendid=${friend.id!}" data-toggle="autoajaxload">
+										  </div>
+									  </div>
+
 									  <!--工作经历-->
-									  <div class="tab-pane active in"  id="workexperience">
+									  <div class="tab-pane"  id="workexperience">
 										  <div data-url="${ctxPath}/workexperience?friendid=${friend.id!}" data-toggle="autoajaxload">
 										  </div>
 									  </div>
@@ -380,11 +392,8 @@ var selected1 = "";
 										  </div>
 									  </div>
 
-
 								  </div>
 
-
-								  <!--<div style="min-width:400px;height:350px;" ></div>-->
 							  </div>
 						  </div>
 					  </div>
@@ -405,6 +414,12 @@ var selected1 = "";
 </div>
 
 <script type="text/javascript">
+
+	function showGzjl()
+	{
+		$("#resetGzjl").click();
+	}
+
 	function showJyjl()
 	{
 		$("#resetJyjl").click();
