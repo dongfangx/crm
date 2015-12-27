@@ -6,30 +6,30 @@ import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
 import org.nutz.dao.entity.annotation.View;
 
-@Table("educationexperience")
-public class Educationexperience{
+@Table("contact")
+public class Contact{
 
 	@Id
 	@Column
 	private Long id;
 
 	@Column
+	private String name;
+
+	@Column
 	private Long friendid;
 
 	@Column
-	private String schoolname;
+	private String content;
 
 	@Column
-	private String educationid;
-
-	@Column
-	private String zhuanye;
-
-	@Column
-	private Date enddate;
+	private String keyworld;
 
 	@Column
 	private Date startdate;
+
+	@Column
+	private Date enddate;
 
 	@Column
 	private String memo;
@@ -43,6 +43,14 @@ public class Educationexperience{
 		this.id = id;
 	}
 
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
 	public Long getFriendid() {
 		return friendid;
 	}
@@ -51,36 +59,20 @@ public class Educationexperience{
 		this.friendid = friendid;
 	}
 
-	public String getSchoolname() {
-		return schoolname;
+	public String getContent() {
+		return content;
 	}
 
-	public void setSchoolname(String schoolname) {
-		this.schoolname = schoolname;
+	public void setContent(String content) {
+		this.content = content;
 	}
 
-	public String getEducationid() {
-		return educationid;
+	public String getKeyworld() {
+		return keyworld;
 	}
 
-	public void setEducationid(String educationid) {
-		this.educationid = educationid;
-	}
-
-	public String getZhuanye() {
-		return zhuanye;
-	}
-
-	public void setZhuanye(String zhuanye) {
-		this.zhuanye = zhuanye;
-	}
-
-	public Date getEnddate() {
-		return enddate;
-	}
-
-	public void setEnddate(Date enddate) {
-		this.enddate = enddate;
+	public void setKeyworld(String keyworld) {
+		this.keyworld = keyworld;
 	}
 
 	public Date getStartdate() {
@@ -89,6 +81,14 @@ public class Educationexperience{
 
 	public void setStartdate(Date startdate) {
 		this.startdate = startdate;
+	}
+
+	public Date getEnddate() {
+		return enddate;
+	}
+
+	public void setEnddate(Date enddate) {
+		this.enddate = enddate;
 	}
 
 	public String getMemo() {

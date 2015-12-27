@@ -110,6 +110,10 @@
     <!-- xinyong -->
     <cache name="xinyong" maxElementsInMemory="1000"/>
 
+    <!-- contact -->
+    <cache name="contact" maxElementsInMemory="1000"/>
+
+
 
 
 </ehcache>

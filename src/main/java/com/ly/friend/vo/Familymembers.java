@@ -1,8 +1,10 @@
 package com.ly.friend.vo;
 
+import java.util.Date;
 import org.nutz.dao.entity.annotation.Table;
 import org.nutz.dao.entity.annotation.Column;
 import org.nutz.dao.entity.annotation.Id;
+import org.nutz.dao.entity.annotation.View;
 
 @Table("familymembers")
 public class Familymembers{
@@ -46,11 +48,11 @@ public class Familymembers{
 		this.name = name;
 	}
 
-	public Long getfriendid() {
+	public Long getFriendid() {
 		return friendid;
 	}
 
-	public void setfriendid(Long friendid) {
+	public void setFriendid(Long friendid) {
 		this.friendid = friendid;
 	}
 
