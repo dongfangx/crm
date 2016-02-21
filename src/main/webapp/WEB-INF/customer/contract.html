@@ -14,32 +14,12 @@ var selected1 = "";
     		<table class="table table-condensed table-hover" width="100%">
 				<tbody>
 
-				<tr>
-					<td>
-						<label for="j_customerid" class="control-label x85">客户ID</label>
-		                	<select id="j_customerid" name="customerid" data-toggle="selectpicker" data-width="200"> 
-		                    <%
-                                selected1 = "";                                
-                                for(obj in customerList!)
-                                {
-                                if(isEmpty(contract.customerid) || obj.id != contract.customerid)
-                                {
-                                selected1="";
-                                }else{
-                                selected1 = "selected='selected'";
-                                }
-                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
-                                }
-                              %>
-		                	</select>
-		            </td>
-            	</tr>
 
 				<tr>
 					<td>
-						<label for="j_date" class="control-label x85">日期</label>
+						<label for="j_date1" class="control-label x85">合同日期</label>
 
-						<input type="text" name="date" id="j_date" value="${contract.date!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+						<input type="text" name="date1" id="j_date1" value="${contract.date1!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
 		            </td>
 		        </tr>
 
@@ -60,8 +40,22 @@ var selected1 = "";
 
 				<tr>
 					<td>
+						<label for="j_price" class="control-label x85">合同金额</label>
+						<input type="text" name="price" id="j_price" value="${contract.price!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
 						<label for="j_position" class="control-label x85">文档存放地址</label>
 						<input type="text" name="position" id="j_position" value="${contract.position!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_employeename" class="control-label x85">员工姓名</label>
+						<input type="text" name="employeename" id="j_employeename" value="${contract.employeename!}" data-rule="" size="20">
 		            </td>
 		        </tr>
 

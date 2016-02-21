@@ -14,7 +14,7 @@ public class Sales{
 	private Long id;
 
 	@Column
-	private String customerid;
+	private Long customerid;
 
 	@Column
 	private String saleno;
@@ -41,6 +41,12 @@ public class Sales{
 	private Float countprice;
 
 	@Column
+	private Date date1;
+
+	@Column
+	private Date adddate;
+
+	@Column
 	private String memo;
 
 
@@ -52,11 +58,11 @@ public class Sales{
 		this.id = id;
 	}
 
-	public String getCustomerid() {
+	public Long getCustomerid() {
 		return customerid;
 	}
 
-	public void setCustomerid(String customerid) {
+	public void setCustomerid(Long customerid) {
 		this.customerid = customerid;
 	}
 
@@ -122,6 +128,22 @@ public class Sales{
 
 	public void setCountprice(Float countprice) {
 		this.countprice = countprice;
+	}
+
+	public Date getDate1() {
+		return date1;
+	}
+
+	public void setDate1(Date date1) {
+		this.date1 = date1;
+	}
+
+	public Date getAdddate() {
+		return adddate;
+	}
+
+	public void setAdddate(Date adddate) {
+		this.adddate = adddate;
 	}
 
 	public String getMemo() {

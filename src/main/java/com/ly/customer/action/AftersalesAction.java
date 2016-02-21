@@ -1,5 +1,6 @@
 package com.ly.customer.action;
 
+import com.ly.base.service.AftersalestypeService;
 import com.ly.comm.Bjui;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
@@ -13,6 +14,7 @@ import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +36,9 @@ public class AftersalesAction {
 	@Inject
 	private AftersalesService aftersalesService;
 
+    @Inject
+    private AftersalestypeService aftersalestypeService;
+
     @At("/")
     @Ok("beetl:/WEB-INF/customer/aftersales_list.html")
     public void index(@Param("..")Page p,
@@ -52,6 +57,7 @@ public class AftersalesAction {
 
         request.setAttribute("page", p);
         request.setAttribute("aftersales", aftersales);
+        request.setAttribute("aftersalestypeList",aftersalestypeService.queryCache(null, new Page()));
     }
 
     @At
@@ -63,6 +69,8 @@ public class AftersalesAction {
         }else{
             request.setAttribute("aftersales", aftersalesService.fetch(id));
         }
+        request.setAttribute("aftersalestypeList",aftersalestypeService.queryCache(null, new Page()));
+
     }
 
     @At
@@ -70,6 +78,7 @@ public class AftersalesAction {
     public Map<String,String> save( @Param("..")Aftersales aftersales){
         Object rtnObject;
         if (aftersales.getId() == null || aftersales.getId() == 0) {
+            aftersales.setAdddate(new Date());
             rtnObject = aftersalesService.dao().insert(aftersales);
         }else{
             rtnObject = aftersalesService.dao().updateIgnoreNull(aftersales);

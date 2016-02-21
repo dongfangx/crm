@@ -17,7 +17,7 @@ public class Contract{
 	private Long customerid;
 
 	@Column
-	private Date date;
+	private Date date1;
 
 	@Column
 	private String url;
@@ -27,6 +27,9 @@ public class Contract{
 
 	@Column
 	private Long employeeid;
+
+	@Column
+	private String employeename;
 
 	@Column
 	private Float price;
@@ -54,12 +57,12 @@ public class Contract{
 		this.customerid = customerid;
 	}
 
-	public Date getDate() {
-		return date;
+	public Date getDate1() {
+		return date1;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setDate1(Date date1) {
+		this.date1 = date1;
 	}
 
 	public String getUrl() {
@@ -84,6 +87,14 @@ public class Contract{
 
 	public void setEmployeeid(Long employeeid) {
 		this.employeeid = employeeid;
+	}
+
+	public String getEmployeename() {
+		return employeename;
+	}
+
+	public void setEmployeename(String employeename) {
+		this.employeename = employeename;
 	}
 
 	public Float getPrice() {

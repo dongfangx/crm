@@ -11,9 +11,6 @@ var selected1 = "";
 		<input type="hidden" name="pageCurrent" value="${page.pageCurrent}" />
 
 		<div class="bjui-searchBar">
-
-				<label for="j_customerid">客户编号：</label>
-				<input type="text"  id="j_customerid" name="customerid" value="${aftersales.customerid!}" class="form-control" size="10"/>
 				<label for="j_aftersalestypeid">售后类型：</label>
 
 
@@ -67,11 +64,9 @@ var selected1 = "";
 
 					<th width="50">编号</th>
 
-					<th>客户编号</th>
-
 					<th>售后类型</th>
 
-					<th>添加日期</th>
+					<th>售后时间</th>
 
 					<th>员工姓名</th>
 
@@ -93,19 +88,12 @@ var selected1 = "";
 
 
 
-
-			<td>
-				 ${obj.customerid!}
-			</td>
-
-
-
 			<td>
 
 				<%
 				for(obj2 in aftersalestypeList)
 				{
-				if(obj2.id == obj.pid)
+				if(obj2.id == obj.aftersalestypeid)
 				{
 				print(obj2.name);
 				break;
@@ -117,7 +105,7 @@ var selected1 = "";
 
 
 			<td>
-				${obj.adddate!,'yyyy-MM-dd'}
+				${obj.date1!,'yyyy-MM-dd'}
             </td>
 
 

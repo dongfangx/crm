@@ -13,6 +13,7 @@ import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -70,6 +71,7 @@ public class LinkmanAction {
     public Map<String,String> save( @Param("..")Linkman linkman){
         Object rtnObject;
         if (linkman.getId() == null || linkman.getId() == 0) {
+            linkman.setAdddate(new Date());
             rtnObject = linkmanService.dao().insert(linkman);
         }else{
             rtnObject = linkmanService.dao().updateIgnoreNull(linkman);

@@ -14,9 +14,6 @@ public class Linkcustomer{
 	private Long id;
 
 	@Column
-	private Long employeeid;
-
-	@Column
 	private Long customerid;
 
 	@Column
@@ -32,6 +29,12 @@ public class Linkcustomer{
 	private Date adddate;
 
 	@Column
+	private Date date1;
+
+	@Column
+	private Long employeeid;
+
+	@Column
 	private String employeename;
 
 	@Column
@@ -44,14 +47,6 @@ public class Linkcustomer{
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public Long getEmployeeid() {
-		return employeeid;
-	}
-
-	public void setEmployeeid(Long employeeid) {
-		this.employeeid = employeeid;
 	}
 
 	public Long getCustomerid() {
@@ -92,6 +87,22 @@ public class Linkcustomer{
 
 	public void setAdddate(Date adddate) {
 		this.adddate = adddate;
+	}
+
+	public Date getDate1() {
+		return date1;
+	}
+
+	public void setDate1(Date date1) {
+		this.date1 = date1;
+	}
+
+	public Long getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(Long employeeid) {
+		this.employeeid = employeeid;
 	}
 
 	public String getEmployeename() {

@@ -17,30 +17,10 @@ var selected1 = "";
 
 				<tr>
 					<td>
-						<label for="j_name" class="control-label x85">名称</label>
+						<label for="j_name" class="control-label x85">姓名</label>
 						<input type="text" name="name" id="j_name" value="${linkman.name!}" data-rule="" size="20">
 		            </td>
 		        </tr>
-				<tr>
-					<td>
-						<label for="j_customerid" class="control-label x85">客户编号</label>
-		                	<select id="j_customerid" name="customerid" data-toggle="selectpicker" data-width="200"> 
-		                    <%
-                                selected1 = "";                                
-                                for(obj in customerList!)
-                                {
-                                if(isEmpty(linkman.customerid) || obj.id != linkman.customerid)
-                                {
-                                selected1="";
-                                }else{
-                                selected1 = "selected='selected'";
-                                }
-                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
-                                }
-                              %>
-		                	</select>
-		            </td>
-            	</tr>
 
 				<tr>
 					<td>
@@ -83,15 +63,6 @@ var selected1 = "";
 						<input type="text" name="birthday" id="j_birthday" value="${linkman.birthday!}" data-rule="" size="20">
 		            </td>
 		        </tr>
-
-				<tr>
-					<td>
-						<label for="j_adddate" class="control-label x85">添加时间</label>
-
-						<input type="text" name="adddate" id="j_adddate" value="${linkman.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
-		            </td>
-		        </tr>
-
 
 				<tr>
 					<td>
