@@ -4,6 +4,7 @@ import com.ly.base.service.EventtypeService;
 import com.ly.comm.Bjui;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
+import com.ly.customer.vo.Customer;
 import org.nutz.dao.Cnd;
 import org.nutz.dao.Dao;
 import org.nutz.ioc.loader.annotation.Inject;
@@ -43,6 +44,7 @@ public class CustomereventAction {
     @Ok("beetl:/WEB-INF/customer/customerevent_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Customerevent customerevent,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(customerevent).getCnd();
@@ -58,18 +60,29 @@ public class CustomereventAction {
         request.setAttribute("page", p);
         request.setAttribute("customerevent", customerevent);
         request.setAttribute("eventtypeList",eventtypeService.queryCache(null,new Page()));
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/customerevent.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("customerevent", null);
         }else{
-            request.setAttribute("customerevent", customereventService.fetch(id));
+            Customerevent customerevent = customereventService.fetch(id);
+            if (action == 3)
+            {
+                customerevent.setId(null);
+            }
+            request.setAttribute("customerevent", customerevent);
         }
         request.setAttribute("eventtypeList",eventtypeService.queryCache(null,new Page()));
+        request.setAttribute("customerid",customerid);
+
 
     }
 

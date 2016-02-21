@@ -38,6 +38,7 @@ public class ContractAction {
     @Ok("beetl:/WEB-INF/customer/contract_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Contract contract,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(contract).getCnd();
@@ -52,17 +53,28 @@ public class ContractAction {
 
         request.setAttribute("page", p);
         request.setAttribute("contract", contract);
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/contract.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("contract", null);
         }else{
-            request.setAttribute("contract", contractService.fetch(id));
+            Contract contract = contractService.fetch(id);
+            if (action == 3)
+            {
+                contract.setId(null);
+            }
+            request.setAttribute("contract", contract);
         }
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At

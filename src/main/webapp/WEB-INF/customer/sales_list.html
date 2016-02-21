@@ -4,7 +4,7 @@ var selected1 = "";
 %>
 
 <div class="bjui-pageHeader">
-	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/sales" method="post">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/sales?customerid=${customerid!}" method="post">
 
 
 		<input type="hidden" name="pageSize" value="${page.pageSize}" />
@@ -16,20 +16,21 @@ var selected1 = "";
 				<input type="text"  id="j_saleno" name="saleno" value="${sales.saleno!}" class="form-control" size="10"/>
 
 			<button type="submit" class="btn-default" data-icon="search">查询</button>
-			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+			<a id="resetsales" class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
 
 			<div class="pull-right">
 
-				<a  href="${ctxPath}/sales/edit" class="btn btn-default" data-id="dialog_sales_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">添加</a>					
+				<a  href="${ctxPath}/sales/edit?customerid=${customerid!}" class="btn btn-default" data-id="dialog_sales_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true" data-on-close="change_refresh">添加</a>
 
 				<a  href="${ctxPath}/sales/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_sales_edit" data-toggle="dialog"
-					data-width="500" data-height="300"  data-mask="true">编辑</a>
+					data-width="500" data-height="300"  data-mask="true" data-on-close="change_refresh">编辑</a>
 
 				<a  href="${ctxPath}/sales/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_sales_edit" data-toggle="dialog"
-					data-width="500" data-height="300" data-mask="true">复制添加</a>
+					data-width="500" data-height="300" data-mask="true" data-on-close="change_refresh">复制添加</a>
 
-				<a href="${ctxPath}/sales/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
+				<a href="${ctxPath}/sales/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax"
+				   data-confirm-msg="确定要删除该行信息吗？" data-callback="change_refresh">删</a>
 
 
 				&nbsp;&nbsp;
@@ -153,3 +154,9 @@ var selected1 = "";
 	<div class="pagination-box" data-toggle="pagination" data-total="${page.recordCount}" data-page-size="20" data-page-current="${page.pageNumber}">
 	</div>
 </div>
+<script style="text/javascript">
+	function change_refresh()
+	{
+		$("#resetsales").click();
+	}
+</script>

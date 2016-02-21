@@ -62,12 +62,18 @@ public class ProductAction {
 
     @At
     @Ok("beetl:/WEB-INF/product/product.html")
-    public void edit(@Param("id")Long id,
+    public void edit(@Param("action")int action,
+                     @Param("id")Long id,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("product", null);
         }else{
-            request.setAttribute("product", productService.fetch(id));
+            Product product = productService.fetch(id);
+            if (action == 3)
+            {
+                product.setId(null);
+            }
+            request.setAttribute("product", product);
         }
         request.setAttribute("unitList",unitService.queryCache(null,new Page()));
     }
