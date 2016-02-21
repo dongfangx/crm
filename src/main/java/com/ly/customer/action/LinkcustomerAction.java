@@ -1,5 +1,6 @@
 package com.ly.customer.action;
 
+import com.ly.base.service.LinktypeService;
 import com.ly.comm.Bjui;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
@@ -13,6 +14,7 @@ import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +36,9 @@ public class LinkcustomerAction {
 	@Inject
 	private LinkcustomerService linkcustomerService;
 
+    @Inject
+    private LinktypeService linktypeService;
+
     @At("/")
     @Ok("beetl:/WEB-INF/customer/linkcustomer_list.html")
     public void index(@Param("..")Page p,
@@ -52,6 +57,7 @@ public class LinkcustomerAction {
 
         request.setAttribute("page", p);
         request.setAttribute("linkcustomer", linkcustomer);
+        request.setAttribute("linktypeList",linktypeService.queryCache(null,new Page()));
     }
 
     @At
@@ -70,6 +76,7 @@ public class LinkcustomerAction {
     public Map<String,String> save( @Param("..")Linkcustomer linkcustomer){
         Object rtnObject;
         if (linkcustomer.getId() == null || linkcustomer.getId() == 0) {
+            linkcustomer.setAdddate(new Date());
             rtnObject = linkcustomerService.dao().insert(linkcustomer);
         }else{
             rtnObject = linkcustomerService.dao().updateIgnoreNull(linkcustomer);
