@@ -102,4 +102,24 @@ public class ProductAction {
         return Bjui.rtnMap((num > 0) ? true : false , "tab_product",false);
     }
 
+    @At
+    @Ok("beetl:/WEB-INF/product/product_lookup.html")
+    public void lookup(@Param("..")Page p,
+                       @Param("..")Product product,
+                       HttpServletRequest request){
+
+        Cnd c = new ParseObj(product).getCnd();
+        if (c == null || c.equals(""))
+        {
+            p.setRecordCount(productService.listCount(c));
+            request.setAttribute("list_obj", productService.queryCache(c,p));
+        }else{
+            p.setRecordCount(productService.count(c));
+            request.setAttribute("list_obj", productService.query(c,p));
+        }
+
+        request.setAttribute("page", p);
+        request.setAttribute("product", product);
+    }
+
 }

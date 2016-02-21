@@ -7,7 +7,7 @@ var selected1 = "";
 
     <input type="hidden" id="id" name="id" value="${sales.id!}">
     <input type="hidden" id="action" name="action" value="${action!}">
-	  <input type="hidden" id="customerid" name="customerid" value="${sales.customerid!}">
+	  <input type="hidden" id="customerid" name="customerid" value="${customerid!}">
 
 
     	<div class="pageFormContent" data-layout-h="0">
@@ -26,14 +26,16 @@ var selected1 = "";
 				<tr>
 					<td>
 						<label for="j_employeename" class="control-label x85">员工姓名</label>
-						<input type="text" name="employeename" id="j_employeename" value="${sales.employeename!}" data-rule="" size="20">
+						<input type="text" name="employeename" id="j_employeename" value="${sales.employeename!}" size="20" data-toggle="lookup" data-url="${ctxPath}/employee/lookup"  data-width="650" data-height="400">
+
 		            </td>
 		        </tr>
 
 				<tr>
 					<td>
 						<label for="j_productname" class="control-label x85">产品名</label>
-						<input type="text" name="productname" id="j_productname" value="${sales.productname!}" data-rule="" size="20">
+						<input type="text" name="productname" id="j_productname" value="${sales.productname!}" size="20" data-toggle="lookup" data-url="${ctxPath}/product/lookup"  data-width="650" data-height="400">
+
 		            </td>
 		        </tr>
 
