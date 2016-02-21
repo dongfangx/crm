@@ -1,0 +1,140 @@
+
+<%
+var selected1 = "";
+%>
+
+<div class="bjui-pageHeader">
+	<form id="pagerForm" data-toggle="ajaxsearch" action="${ctxPath}/sales" method="post">
+
+
+		<input type="hidden" name="pageSize" value="${page.pageSize}" />
+		<input type="hidden" name="pageCurrent" value="${page.pageCurrent}" />
+
+		<div class="bjui-searchBar">
+
+			<button type="submit" class="btn-default" data-icon="search">查询</button>
+			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
+
+			<div class="pull-right">
+
+				<a  href="${ctxPath}/sales/edit" class="btn btn-default" data-id="dialog_sales_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true">添加</a>					
+
+				<a  href="${ctxPath}/sales/edit?id={#bjui-selected}" class="btn btn-default" data-id="tab_sales_edit" data-toggle="dialog"
+					data-width="500" data-height="300"  data-mask="true">编辑</a>
+
+				<a  href="${ctxPath}/sales/edit?action=3&id={#bjui-selected}" class="btn btn-default" data-id="tab_sales_edit" data-toggle="dialog"
+					data-width="500" data-height="300" data-mask="true">复制添加</a>
+
+				<a href="${ctxPath}/sales/del?id={#bjui-selected}" class="btn btn-red" data-toggle="doajax" data-confirm-msg="确定要删除该行信息吗？">删</a>
+
+
+				&nbsp;&nbsp;
+			</div>
+
+		</div>
+
+	</form>
+</div>
+<div class="bjui-pageContent tableContent">
+	<table data-toggle="tablefixed" data-width="100%" >
+		<thead>
+		<tr>
+
+
+					<th width="50">编号</th>
+
+					<th>销售单号</th>
+
+					<th>员工姓名</th>
+
+					<th>产品名</th>
+
+					<th>金额</th>
+
+					<th>数量</th>
+
+					<th>总价</th>
+
+		</tr>
+		</thead>
+		<tbody>
+
+		<%
+        for(obj in list_obj){
+        %>
+
+            <tr data-id="${obj.id}">
+
+
+
+			<td>
+				 ${obj.id!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.saleno!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.employeename!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.productname!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.price!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.num!}
+			</td>
+
+
+
+
+			<td>
+				 ${obj.countprice!}
+			</td>
+
+
+            </tr>    
+         <%}%>   
+
+		</tbody>
+	</table>
+</div>
+
+<div class="bjui-pageFooter">
+	<div class="pages">
+		<span>每页&nbsp;</span>
+		<div class="selectPagesize">
+			<select data-toggle="selectpicker" data-toggle-change="changepagesize">
+				<option value="20">20</option>
+				<option value="30">30</option>
+				<option value="50">50</option>
+				<option value="100">100</option>
+			</select>
+		</div>
+		<span>&nbsp;条，共 ${page.recordCount} 条</span>
+	</div>
+	<div class="pagination-box" data-toggle="pagination" data-total="${page.recordCount}" data-page-size="20" data-page-current="${page.pageNumber}">
+	</div>
+</div>

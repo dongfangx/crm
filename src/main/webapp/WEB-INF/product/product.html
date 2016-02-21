@@ -1,0 +1,94 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/product/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${product.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_name" class="control-label x85">名称</label>
+						<input type="text" name="name" id="j_name" value="${product.name!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_specs" class="control-label x85">规格</label>
+						<input type="text" name="specs" id="j_specs" value="${product.specs!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_price" class="control-label x85">单价(元)</label>
+						<input type="text" name="price" id="j_price" value="${product.price!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+
+				<tr>
+					<td>
+						<label for="j_storage" class="control-label x85">库存量</label>
+						<input type="text" name="storage" id="j_storage" value="${product.storage!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+				<tr>
+					<td>
+						<label for="j_unitid" class="control-label x85">单位</label>
+		                	<select id="j_unitid" name="unitid" data-toggle="selectpicker" data-width="200"> 
+		                    <%
+                                selected1 = "";                                
+                                for(obj in unitList!)
+                                {
+                                if(isEmpty(product.unitid) || obj.id != product.unitid)
+                                {
+                                selected1="";
+                                }else{
+                                selected1 = "selected='selected'";
+                                }
+                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+                                }
+                              %>
+		                	</select>
+		            </td>
+            	</tr>
+
+				<tr>
+					<td>
+						<label for="j_lowdiscount" class="control-label x85">最低折扣</label>
+						<input type="text" name="lowdiscount" id="j_lowdiscount" value="${product.lowdiscount!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="j_descript" class="control-label x85">描述</label>
+						<input type="text" name="descript" id="j_descript" value="${product.descript!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

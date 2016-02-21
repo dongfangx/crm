@@ -1,0 +1,81 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/customerevent/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${customerevent.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+				<tr>
+					<td>
+						<label for="j_customereventid" class="control-label x85">事件类型</label>
+		                	<select id="j_customereventid" name="customereventid" data-toggle="selectpicker" data-width="200"> 
+		                    <%
+                                selected1 = "";                                
+                                for(obj in customereventList!)
+                                {
+                                if(isEmpty(customerevent.customereventid) || obj.id != customerevent.customereventid)
+                                {
+                                selected1="";
+                                }else{
+                                selected1 = "selected='selected'";
+                                }
+                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+                                }
+                              %>
+		                	</select>
+		            </td>
+            	</tr>
+
+				<tr>
+					<td>
+						<label for="j_content" class="control-label x85">内容</label>
+						<input type="text" name="content" id="j_content" value="${customerevent.content!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_adddate" class="control-label x85">添加时间</label>
+
+						<input type="text" name="adddate" id="j_adddate" value="${customerevent.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_employeename" class="control-label x85">客户姓名</label>
+						<input type="text" name="employeename" id="j_employeename" value="${customerevent.employeename!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_memo" class="control-label x85">备注</label>
+						<input type="text" name="memo" id="j_memo" value="${customerevent.memo!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

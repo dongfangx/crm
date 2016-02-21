@@ -1,0 +1,116 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/linkman/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${linkman.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_name" class="control-label x85">名称</label>
+						<input type="text" name="name" id="j_name" value="${linkman.name!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+				<tr>
+					<td>
+						<label for="j_customerid" class="control-label x85">客户编号</label>
+		                	<select id="j_customerid" name="customerid" data-toggle="selectpicker" data-width="200"> 
+		                    <%
+                                selected1 = "";                                
+                                for(obj in customerList!)
+                                {
+                                if(isEmpty(linkman.customerid) || obj.id != linkman.customerid)
+                                {
+                                selected1="";
+                                }else{
+                                selected1 = "selected='selected'";
+                                }
+                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+                                }
+                              %>
+		                	</select>
+		            </td>
+            	</tr>
+
+				<tr>
+					<td>
+						<label for="j_title" class="control-label x85">职位</label>
+						<input type="text" name="title" id="j_title" value="${linkman.title!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_phone" class="control-label x85">电话</label>
+						<input type="text" name="phone" id="j_phone" value="${linkman.phone!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_email" class="control-label x85">Email</label>
+						<input type="text" name="email" id="j_email" value="${linkman.email!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_address" class="control-label x85">地址</label>
+						<input type="text" name="address" id="j_address" value="${linkman.address!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_postcode" class="control-label x85">邮编</label>
+						<input type="text" name="postcode" id="j_postcode" value="${linkman.postcode!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_birthday" class="control-label x85">生日</label>
+						<input type="text" name="birthday" id="j_birthday" value="${linkman.birthday!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_adddate" class="control-label x85">添加时间</label>
+
+						<input type="text" name="adddate" id="j_adddate" value="${linkman.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_memo" class="control-label x85">备注</label>
+						<input type="text" name="memo" id="j_memo" value="${linkman.memo!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>

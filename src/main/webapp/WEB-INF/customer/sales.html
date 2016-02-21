@@ -1,0 +1,66 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/sales/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${sales.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_saleno" class="control-label x85">销售单号</label>
+						<input type="text" name="saleno" id="j_saleno" value="${sales.saleno!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_employeename" class="control-label x85">员工姓名</label>
+						<input type="text" name="employeename" id="j_employeename" value="${sales.employeename!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_productname" class="control-label x85">产品名</label>
+						<input type="text" name="productname" id="j_productname" value="${sales.productname!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_num" class="control-label x85">数量</label>
+						<input type="text" name="num" id="j_num" value="${sales.num!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_memo" class="control-label x85">备注</label>
+						<input type="text" name="memo" id="j_memo" value="${sales.memo!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>
