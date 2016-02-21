@@ -2,141 +2,233 @@
 <%
 var selected1 = "";
 %>
-<div class="bjui-pageContent tableContent">
-  <form method="post" action="${ctxPath}/customer/save" class="pageForm" data-toggle="validate">
+<div class="bjui-pageContent">
 
-    <input type="hidden" id="id" name="id" value="${customer.id!}">
-    <input type="hidden" id="action" name="action" value="${action!}">
+	<div style="margin:5px auto 0; width:100%;">
+		<div class="row" style="padding: 0 5px;">
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading">
+								<h4 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i>基本信息</h4>
+							</div>
+							<div class="panel-body" style="padding: 0px">
+								<form method="post" action="${ctxPath}/customer/save" class="pageForm" data-toggle="validate">
+
+									<input type="hidden" id="id" name="id" value="${customer.id!}">
+									<input type="hidden" id="action" name="action" value="${action!}">
+
+									<div class="pageFormContent" data-layout-h="0">
 
 
-    	<div class="pageFormContent" data-layout-h="0">
-
-    		<table class="table table-condensed table-hover" width="100%">
-				<tbody>
+										<table class="table table-condensed table-hover" width="100%">
+											<tbody>
 
 
-				<tr>
-					<td>
-						<label for="j_name" class="control-label x85">名称</label>
-						<input type="text" name="name" id="j_name" value="${customer.name!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+											<tr>
+												<td>
+													<label for="j_name" class="control-label x85">名称</label>
+													<input type="text" name="name" id="j_name" value="${customer.name!}" data-rule="" size="20">
+												</td>
 
-				<tr>
-					<td>
-						<label for="j_workphone" class="control-label x85">座机</label>
-						<input type="text" name="workphone" id="j_workphone" value="${customer.workphone!}" data-rule="" size="20">
-		            </td>
-		        </tr>
-				<tr>
-					<td>
-						<label for="j_xinyongid" class="control-label x85">信用等级</label>
-		                	<select id="j_xinyongid" name="xinyongid" data-toggle="selectpicker" data-width="200"> 
-		                    <%
-                                selected1 = "";                                
-                                for(obj in xinyongList!)
-                                {
-                                if(isEmpty(customer.xinyongid) || obj.id != customer.xinyongid)
-                                {
-                                selected1="";
-                                }else{
-                                selected1 = "selected='selected'";
-                                }
-                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
-                                }
-                              %>
-		                	</select>
-		            </td>
-            	</tr>
-				<tr>
-					<td>
-						<label for="j_customerlevelid" class="control-label x85">客户级别</label>
-		                	<select id="j_customerlevelid" name="customerlevelid" data-toggle="selectpicker" data-width="200"> 
-		                    <%
-                                selected1 = "";                                
-                                for(obj in customerlevelList!)
-                                {
-                                if(isEmpty(customer.customerlevelid) || obj.id != customer.customerlevelid)
-                                {
-                                selected1="";
-                                }else{
-                                selected1 = "selected='selected'";
-                                }
-                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
-                                }
-                              %>
-		                	</select>
-		            </td>
-            	</tr>
+												<td>
+													<label for="j_workphone" class="control-label x85">座机</label>
+													<input type="text" name="workphone" id="j_workphone" value="${customer.workphone!}" data-rule="" size="20">
+												</td>
+											</tr>
+											<tr>
+												<td>
+													<label for="j_xinyongid" class="control-label x85">信用等级</label>
+													<select id="j_xinyongid" name="xinyongid" data-toggle="selectpicker" data-width="200">
+														<%
+														selected1 = "";
+														for(obj in xinyongList!)
+														{
+														if(isEmpty(customer.xinyongid) || obj.id != customer.xinyongid)
+														{
+														selected1="";
+														}else{
+														selected1 = "selected='selected'";
+														}
+														println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+														}
+														%>
+													</select>
+												</td>
 
-				<tr>
-					<td>
-						<label for="j_phone" class="control-label x85">电话</label>
-						<input type="text" name="phone" id="j_phone" value="${customer.phone!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+												<td>
+													<label for="j_customerlevelid" class="control-label x85">客户级别</label>
+													<select id="j_customerlevelid" name="customerlevelid" data-toggle="selectpicker" data-width="200">
+														<%
+														selected1 = "";
+														for(obj in customerlevelList!)
+														{
+														if(isEmpty(customer.customerlevelid) || obj.id != customer.customerlevelid)
+														{
+														selected1="";
+														}else{
+														selected1 = "selected='selected'";
+														}
+														println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+														}
+														%>
+													</select>
+												</td>
+											</tr>
 
-				<tr>
-					<td>
-						<label for="j_fax" class="control-label x85">传真</label>
-						<input type="text" name="fax" id="j_fax" value="${customer.fax!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+											<tr>
+												<td>
+													<label for="j_phone" class="control-label x85">电话</label>
+													<input type="text" name="phone" id="j_phone" value="${customer.phone!}" data-rule="" size="20">
+												</td>
 
-				<tr>
-					<td>
-						<label for="j_adress" class="control-label x85">地址</label>
-						<input type="text" name="adress" id="j_adress" value="${customer.adress!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+												<td>
+													<label for="j_fax" class="control-label x85">传真</label>
+													<input type="text" name="fax" id="j_fax" value="${customer.fax!}" data-rule="" size="20">
+												</td>
+											</tr>
 
-				<tr>
-					<td>
-						<label for="j_postcode" class="control-label x85">邮编</label>
-						<input type="text" name="postcode" id="j_postcode" value="${customer.postcode!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+											<tr>
+												<td>
+													<label for="j_adress" class="control-label x85">地址</label>
+													<input type="text" name="adress" id="j_adress" value="${customer.adress!}" data-rule="" size="20">
+												</td>
+												<td>
+													<label for="j_postcode" class="control-label x85">邮编</label>
+													<input type="text" name="postcode" id="j_postcode" value="${customer.postcode!}" data-rule="" size="20">
+												</td>
+											</tr>
 
-				<tr>
-					<td>
-						<label for="j_url" class="control-label x85">url</label>
-						<input type="text" name="url" id="j_url" value="${customer.url!}" data-rule="" size="20">
-		            </td>
-		        </tr>
-				<tr>
-					<td>
-						<label for="j_customertypeid" class="control-label x85">客户类型</label>
-		                	<select id="j_customertypeid" name="customertypeid" data-toggle="selectpicker" data-width="200"> 
-		                    <%
-                                selected1 = "";                                
-                                for(obj in customertypeList!)
-                                {
-                                if(isEmpty(customer.customertypeid) || obj.id != customer.customertypeid)
-                                {
-                                selected1="";
-                                }else{
-                                selected1 = "selected='selected'";
-                                }
-                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
-                                }
-                              %>
-		                	</select>
-		            </td>
-            	</tr>
+											<tr>
+												<td>
+													<label for="j_url" class="control-label x85">url</label>
+													<input type="text" name="url" id="j_url" value="${customer.url!}" data-rule="" size="20">
+												</td>
+												<td>
+													<label for="j_customertypeid" class="control-label x85">客户类型</label>
+													<select id="j_customertypeid" name="customertypeid" data-toggle="selectpicker" data-width="200">
+														<%
+														selected1 = "";
+														for(obj in customertypeList!)
+														{
+														if(isEmpty(customer.customertypeid) || obj.id != customer.customertypeid)
+														{
+														selected1="";
+														}else{
+														selected1 = "selected='selected'";
+														}
+														println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+														}
+														%>
+													</select>
+												</td>
+											</tr>
 
-				<tr>
-					<td>
-						<label for="j_memo" class="control-label x85">备注</label>
-						<input type="text" name="memo" id="j_memo" value="${customer.memo!}" data-rule="" size="20">
-		            </td>
-		        </tr>
+											<tr>
+												<td colspan="2">
+													<label for="j_memo" class="control-label x85">备注</label>
+													<input type="text" name="memo" id="j_memo" value="${customer.memo!}" data-rule="" size="60">
+												</td>
+											</tr>
 
-				</tbody>
-			</table>
+											</tbody>
+										</table>
+									</div>
+
+
+								</form>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<%if(!isEmpty(customer.id)){%>
+			<div class="col-md-12">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"><h3 class="panel-title"><i class="fa fa-pie-chart fa-fw"></i>其他信息</h3></div>
+							<div class="panel-body" style="padding: 0px">
+
+								<ul class="nav nav-tabs" role="tablist">
+
+									<li class="active">
+										<a href="#linkcustomer" role="tab" data-toggle="tab">联系客户记录</a>
+									</li>
+
+									<li>
+										<a href="#customerevent" onclick="showcustomerevent()"  role="tab" data-toggle="tab" >客户事件</a>
+									</li>
+
+									<li>
+										<a href="#linkman" onclick="showlinkman()"  role="tab" data-toggle="tab" >联系人</a>
+									</li>
+									<li>
+										<a href="#sales" onclick="showsales()"  role="tab" data-toggle="tab" >销售记录</a>
+									</li>
+									<li>
+										<a href="#aftersales" onclick="showaftersales()"  role="tab" data-toggle="tab" >售后记录</a>
+									</li>
+									<li>
+										<a href="#contract" onclick="showcontract()"  role="tab" data-toggle="tab" >合同管理</a>
+									</li>
+
+								</ul>
+
+								<div class="tab-content" style="padding: 0px;">
+
+									<!--联系客户记录-->
+									<div class="tab-pane active in"  id="linkcustomer">
+										<div data-url="${ctxPath}/linkcustomer?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+									<!--客户事件-->
+									<div class="tab-pane "  id="customerevent">
+										<div data-url="${ctxPath}/customerevent?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+									<!--联系人-->
+									<div class="tab-pane "  id="linkman">
+										<div data-url="${ctxPath}/linkman?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+									<!--销售记录-->
+									<div class="tab-pane "  id="sales">
+										<div data-url="${ctxPath}/sales?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+									<!--售后记录-->
+									<div class="tab-pane "  id="aftersales">
+										<div data-url="${ctxPath}/aftersales?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+									<!--合同管理-->
+									<div class="tab-pane "  id="contract">
+										<div data-url="${ctxPath}/contract?customerid=${customer.id!}" data-toggle="autoajaxload">
+										</div>
+									</div>
+
+
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<%}%>
 		</div>
+	</div>
 
 
-	</form>
 </div>
 
 <div class="bjui-pageFooter">
@@ -145,3 +237,36 @@ var selected1 = "";
 		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
 	</ul>
 </div>
+
+<script type="text/javascript">
+
+	function showcustomerevent()
+	{
+		$("#customerevent").click();
+	}
+
+	function showlinkman()
+	{
+		$("#resetlinkman").click();
+	}
+
+	function showsales()
+	{
+		$("#resetsales").click();
+	}
+
+	function showaftersales()
+	{
+		$("#resetaftersales").click();
+	}
+
+	function showcontract()
+	{
+		$("#resetcontract").click();
+	}
+
+
+
+
+
+</script>
