@@ -96,4 +96,25 @@ public class EmployeeAction {
         return Bjui.rtnMap((num > 0) ? true : false , "tab_employee",false);
     }
 
+    @At
+    @Ok("beetl:/WEB-INF/base/employee_lookup.html")
+    public void lookup(@Param("..")Page p,
+                       @Param("..")Employee employee,
+                       HttpServletRequest request){
+
+        Cnd c = new ParseObj(employee).getCnd();
+        if (c == null || c.equals(""))
+        {
+            p.setRecordCount(employeeService.listCount(c));
+            request.setAttribute("list_obj", employeeService.queryCache(c,p));
+        }else{
+            p.setRecordCount(employeeService.count(c));
+            request.setAttribute("list_obj", employeeService.query(c,p));
+        }
+
+        request.setAttribute("page", p);
+        request.setAttribute("employee", employee);
+    }
+
+
 }
