@@ -74,11 +74,17 @@ public class CustomerAction {
     @At
     @Ok("beetl:/WEB-INF/customer/customer.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("customer", null);
         }else{
-            request.setAttribute("customer", customerService.fetch(id));
+            Customer customer = customerService.fetch(id);
+            if (action == 3)
+            {
+                customer.setId(null);
+            }
+            request.setAttribute("customer", customer);
         }
         request.setAttribute("xinyongList",xinyongService.queryCache(null,new Page()));
         request.setAttribute("customerlevelList",customerlevelService.queryCache(null,new Page()));

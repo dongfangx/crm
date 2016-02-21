@@ -43,6 +43,7 @@ public class LinkcustomerAction {
     @Ok("beetl:/WEB-INF/customer/linkcustomer_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Linkcustomer linkcustomer,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(linkcustomer).getCnd();
@@ -58,18 +59,30 @@ public class LinkcustomerAction {
         request.setAttribute("page", p);
         request.setAttribute("linkcustomer", linkcustomer);
         request.setAttribute("linktypeList",linktypeService.queryCache(null,new Page()));
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/linkcustomer.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("linkcustomer", null);
         }else{
-            request.setAttribute("linkcustomer", linkcustomerService.fetch(id));
+            Linkcustomer linkcustomer = linkcustomerService.fetch(id);
+            if (action == 3)
+            {
+                linkcustomer.setId(null);
+            }
+
+            request.setAttribute("linkcustomer", linkcustomer);
         }
         request.setAttribute("linktypeList",linktypeService.queryCache(null,new Page()));
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At

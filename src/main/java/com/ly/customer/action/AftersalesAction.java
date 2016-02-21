@@ -43,6 +43,7 @@ public class AftersalesAction {
     @Ok("beetl:/WEB-INF/customer/aftersales_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Aftersales aftersales,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(aftersales).getCnd();
@@ -58,18 +59,28 @@ public class AftersalesAction {
         request.setAttribute("page", p);
         request.setAttribute("aftersales", aftersales);
         request.setAttribute("aftersalestypeList",aftersalestypeService.queryCache(null, new Page()));
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/aftersales.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("aftersales", null);
         }else{
-            request.setAttribute("aftersales", aftersalesService.fetch(id));
+            Aftersales aftersales = aftersalesService.fetch(id);
+            if (action == 3)
+            {
+                aftersales.setId(null);
+            }
+            request.setAttribute("aftersales", aftersales);
         }
         request.setAttribute("aftersalestypeList",aftersalestypeService.queryCache(null, new Page()));
+        request.setAttribute("customerid",customerid);
 
     }
 

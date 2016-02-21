@@ -38,6 +38,7 @@ public class SalesAction {
     @Ok("beetl:/WEB-INF/customer/sales_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Sales sales,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(sales).getCnd();
@@ -52,17 +53,27 @@ public class SalesAction {
 
         request.setAttribute("page", p);
         request.setAttribute("sales", sales);
+        request.setAttribute("customerid",customerid);
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/sales.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("sales", null);
         }else{
-            request.setAttribute("sales", salesService.fetch(id));
+            Sales sales = salesService.fetch(id);
+            if (action == 3)
+            {
+                sales.setId(null);
+            }
+            request.setAttribute("sales", sales);
         }
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At

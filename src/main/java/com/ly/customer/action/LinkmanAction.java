@@ -39,6 +39,7 @@ public class LinkmanAction {
     @Ok("beetl:/WEB-INF/customer/linkman_list.html")
     public void index(@Param("..")Page p,
                       @Param("..")Linkman linkman,
+                      @Param("customerid")long customerid,
                       HttpServletRequest request){
 
         Cnd c = new ParseObj(linkman).getCnd();
@@ -53,17 +54,28 @@ public class LinkmanAction {
 
         request.setAttribute("page", p);
         request.setAttribute("linkman", linkman);
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
     @Ok("beetl:/WEB-INF/customer/linkman.html")
     public void edit(@Param("id")Long id,
+                     @Param("action")int action,
+                     @Param("customerid")long customerid,
                       HttpServletRequest request){
         if(id == null || id == 0){
             request.setAttribute("linkman", null);
         }else{
-            request.setAttribute("linkman", linkmanService.fetch(id));
+            Linkman linkman = linkmanService.fetch(id);
+            if (action == 3)
+            {
+                linkman.setId(null);
+            }
+            request.setAttribute("linkman", linkman);
         }
+        request.setAttribute("customerid",customerid);
+
     }
 
     @At
