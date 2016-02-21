@@ -1,5 +1,6 @@
 package com.ly.customer.action;
 
+import com.ly.base.service.EventtypeService;
 import com.ly.comm.Bjui;
 import com.ly.comm.Page;
 import com.ly.comm.ParseObj;
@@ -13,6 +14,7 @@ import org.nutz.mvc.annotation.*;
 import org.nutz.mvc.filter.CheckSession;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -34,6 +36,9 @@ public class CustomereventAction {
 	@Inject
 	private CustomereventService customereventService;
 
+    @Inject
+    private EventtypeService eventtypeService;
+
     @At("/")
     @Ok("beetl:/WEB-INF/customer/customerevent_list.html")
     public void index(@Param("..")Page p,
@@ -52,6 +57,7 @@ public class CustomereventAction {
 
         request.setAttribute("page", p);
         request.setAttribute("customerevent", customerevent);
+        request.setAttribute("eventtypeList",eventtypeService.queryCache(null,new Page()));
     }
 
     @At
@@ -63,6 +69,8 @@ public class CustomereventAction {
         }else{
             request.setAttribute("customerevent", customereventService.fetch(id));
         }
+        request.setAttribute("eventtypeList",eventtypeService.queryCache(null,new Page()));
+
     }
 
     @At
@@ -70,6 +78,7 @@ public class CustomereventAction {
     public Map<String,String> save( @Param("..")Customerevent customerevent){
         Object rtnObject;
         if (customerevent.getId() == null || customerevent.getId() == 0) {
+            customerevent.setAdddate(new Date());
             rtnObject = customereventService.dao().insert(customerevent);
         }else{
             rtnObject = customereventService.dao().updateIgnoreNull(customerevent);

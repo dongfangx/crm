@@ -69,6 +69,7 @@ public class LinkcustomerAction {
         }else{
             request.setAttribute("linkcustomer", linkcustomerService.fetch(id));
         }
+        request.setAttribute("linktypeList",linktypeService.queryCache(null,new Page()));
     }
 
     @At

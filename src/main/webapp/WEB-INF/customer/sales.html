@@ -38,10 +38,33 @@ var selected1 = "";
 
 				<tr>
 					<td>
+						<label for="j_price" class="control-label x85">单价(元)</label>
+						<input type="text" name="price" id="j_price" value="${sales.price!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
 						<label for="j_num" class="control-label x85">数量</label>
 						<input type="text" name="num" id="j_num" value="${sales.num!}" data-rule="" size="20">
 		            </td>
 		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_countprice" class="control-label x85">总价(元)</label>
+						<input type="text" name="countprice" id="j_countprice" value="${sales.countprice!}" data-rule="" size="20">
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+						<label for="j_date1" class="control-label x85">销售时间</label>
+
+						<input type="text" name="date1" id="j_date1" value="${sales.date1!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
 
 				<tr>
 					<td>

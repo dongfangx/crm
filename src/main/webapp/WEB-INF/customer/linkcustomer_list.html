@@ -11,6 +11,26 @@ var selected1 = "";
 		<input type="hidden" name="pageCurrent" value="${page.pageCurrent}" />
 
 		<div class="bjui-searchBar">
+				<label for="j_linktypeid">联系类型：</label>
+
+
+            	<select id="j_linktypeid" name="linktypeid" data-toggle="selectpicker" data-width="100">
+            	<option value="null">---查询条件---</option>
+				<%
+				selected1 = "";
+				for(obj in linktypeList!)
+				{
+	                if(isEmpty(linkcustomer.linktypeid) || obj.id != linkcustomer.linktypeid)
+	                {
+	                selected1="";
+	                }else{
+	                selected1 = "selected='selected'";
+	                }
+	                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+	            }
+				%>
+            	</select>
+
 
 			<button type="submit" class="btn-default" data-icon="search">查询</button>
 			<a class="btn btn-orange" href="javascript:;" data-toggle="reloadsearch" data-clear-query="true" data-icon="undo">清空查询</a>
@@ -41,6 +61,7 @@ var selected1 = "";
 		<thead>
 		<tr>
 
+
 					<th width="50">编号</th>
 
 					<th>联系类型</th>
@@ -48,6 +69,8 @@ var selected1 = "";
 					<th>主题</th>
 
 					<th>添加时间</th>
+
+					<th>联系时间</th>
 
 					<th>员工姓名</th>
 
@@ -61,9 +84,13 @@ var selected1 = "";
 
             <tr data-id="${obj.id}">
 
+
+
 			<td>
 				 ${obj.id!}
 			</td>
+
+
 
 			<td>
 
@@ -79,6 +106,9 @@ var selected1 = "";
 				%>
 			</td>
 
+
+
+
 			<td>
 				 ${obj.theme!}
 			</td>
@@ -87,6 +117,10 @@ var selected1 = "";
 
 			<td>
 				${obj.adddate!,'yyyy-MM-dd'}
+            </td>
+
+			<td>
+				${obj.date1!,'yyyy-MM-dd'}
             </td>
 
 

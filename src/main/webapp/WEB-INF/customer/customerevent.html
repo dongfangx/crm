@@ -16,13 +16,13 @@ var selected1 = "";
 
 				<tr>
 					<td>
-						<label for="j_customereventid" class="control-label x85">事件类型</label>
-		                	<select id="j_customereventid" name="customereventid" data-toggle="selectpicker" data-width="200"> 
+						<label for="j_eventtypeid" class="control-label x85">事件类型</label>
+		                	<select id="j_eventtypeid" name="eventtypeid" data-toggle="selectpicker" data-width="200"> 
 		                    <%
                                 selected1 = "";                                
-                                for(obj in customereventList!)
+                                for(obj in eventtypeList!)
                                 {
-                                if(isEmpty(customerevent.customereventid) || obj.id != customerevent.customereventid)
+                                if(isEmpty(customerevent.eventtypeid) || obj.id != customerevent.eventtypeid)
                                 {
                                 selected1="";
                                 }else{
@@ -37,6 +37,15 @@ var selected1 = "";
 
 				<tr>
 					<td>
+						<label for="j_date1" class="control-label x85">联系时间</label>
+
+						<input type="text" name="date1" id="j_date1" value="${customerevent.date1!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
 						<label for="j_content" class="control-label x85">内容</label>
 						<input type="text" name="content" id="j_content" value="${customerevent.content!}" data-rule="" size="20">
 		            </td>
@@ -44,16 +53,7 @@ var selected1 = "";
 
 				<tr>
 					<td>
-						<label for="j_adddate" class="control-label x85">添加时间</label>
-
-						<input type="text" name="adddate" id="j_adddate" value="${customerevent.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
-		            </td>
-		        </tr>
-
-
-				<tr>
-					<td>
-						<label for="j_employeename" class="control-label x85">客户姓名</label>
+						<label for="j_employeename" class="control-label x85">员工姓名</label>
 						<input type="text" name="employeename" id="j_employeename" value="${customerevent.employeename!}" data-rule="" size="20">
 		            </td>
 		        </tr>

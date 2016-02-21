@@ -14,19 +14,22 @@ public class Customerevent{
 	private Long id;
 
 	@Column
-	private Long employeeid;
-
-	@Column
 	private Long customerid;
 
 	@Column
-	private Long customereventid;
+	private Long eventtypeid;
+
+	@Column
+	private Date date1;
 
 	@Column
 	private String content;
 
 	@Column
 	private Date adddate;
+
+	@Column
+	private Long employeeid;
 
 	@Column
 	private String employeename;
@@ -43,14 +46,6 @@ public class Customerevent{
 		this.id = id;
 	}
 
-	public Long getEmployeeid() {
-		return employeeid;
-	}
-
-	public void setEmployeeid(Long employeeid) {
-		this.employeeid = employeeid;
-	}
-
 	public Long getCustomerid() {
 		return customerid;
 	}
@@ -59,12 +54,20 @@ public class Customerevent{
 		this.customerid = customerid;
 	}
 
-	public Long getCustomereventid() {
-		return customereventid;
+	public Long getEventtypeid() {
+		return eventtypeid;
 	}
 
-	public void setCustomereventid(Long customereventid) {
-		this.customereventid = customereventid;
+	public void setEventtypeid(Long eventtypeid) {
+		this.eventtypeid = eventtypeid;
+	}
+
+	public Date getDate1() {
+		return date1;
+	}
+
+	public void setDate1(Date date1) {
+		this.date1 = date1;
 	}
 
 	public String getContent() {
@@ -81,6 +84,14 @@ public class Customerevent{
 
 	public void setAdddate(Date adddate) {
 		this.adddate = adddate;
+	}
+
+	public Long getEmployeeid() {
+		return employeeid;
+	}
+
+	public void setEmployeeid(Long employeeid) {
+		this.employeeid = employeeid;
 	}
 
 	public String getEmployeename() {

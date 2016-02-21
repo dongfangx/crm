@@ -20,10 +20,10 @@ public class Aftersales{
 	private Long aftersalestypeid;
 
 	@Column
-	private String content;
+	private Date date1;
 
 	@Column
-	private Date adddate;
+	private String content;
 
 	@Column
 	private String employeename;
@@ -33,6 +33,9 @@ public class Aftersales{
 
 	@Column
 	private String memo;
+
+	@Column
+	private Date adddate;
 
 
 	public Long getId() {
@@ -59,20 +62,20 @@ public class Aftersales{
 		this.aftersalestypeid = aftersalestypeid;
 	}
 
+	public Date getDate1() {
+		return date1;
+	}
+
+	public void setDate1(Date date1) {
+		this.date1 = date1;
+	}
+
 	public String getContent() {
 		return content;
 	}
 
 	public void setContent(String content) {
 		this.content = content;
-	}
-
-	public Date getAdddate() {
-		return adddate;
-	}
-
-	public void setAdddate(Date adddate) {
-		this.adddate = adddate;
 	}
 
 	public String getEmployeename() {
@@ -97,5 +100,13 @@ public class Aftersales{
 
 	public void setMemo(String memo) {
 		this.memo = memo;
+	}
+
+	public Date getAdddate() {
+		return adddate;
+	}
+
+	public void setAdddate(Date adddate) {
+		this.adddate = adddate;
 	}
 }

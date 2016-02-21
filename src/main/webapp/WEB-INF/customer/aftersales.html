@@ -14,13 +14,6 @@ var selected1 = "";
     		<table class="table table-condensed table-hover" width="100%">
 				<tbody>
 
-
-				<tr>
-					<td>
-						<label for="j_customerid" class="control-label x85">客户编号</label>
-						<input type="text" name="customerid" id="j_customerid" value="${aftersales.customerid!}" data-rule="" size="20">
-		            </td>
-		        </tr>
 				<tr>
 					<td>
 						<label for="j_aftersalestypeid" class="control-label x85">售后类型</label>
@@ -44,19 +37,19 @@ var selected1 = "";
 
 				<tr>
 					<td>
+						<label for="j_date1" class="control-label x85">售后时间</label>
+
+						<input type="text" name="date1" id="j_date1" value="${aftersales.date1!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
 						<label for="j_content" class="control-label x85">内容</label>
 						<input type="text" name="content" id="j_content" value="${aftersales.content!}" data-rule="" size="20">
 		            </td>
 		        </tr>
-
-				<tr>
-					<td>
-						<label for="j_adddate" class="control-label x85">添加日期</label>
-
-						<input type="text" name="adddate" id="j_adddate" value="${aftersales.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
-		            </td>
-		        </tr>
-
 
 				<tr>
 					<td>
