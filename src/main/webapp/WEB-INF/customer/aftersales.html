@@ -1,0 +1,88 @@
+
+<%
+var selected1 = "";
+%>
+<div class="bjui-pageContent tableContent">
+  <form method="post" action="${ctxPath}/aftersales/save" class="pageForm" data-toggle="validate">
+
+    <input type="hidden" id="id" name="id" value="${aftersales.id!}">
+    <input type="hidden" id="action" name="action" value="${action!}">
+
+
+    	<div class="pageFormContent" data-layout-h="0">
+
+    		<table class="table table-condensed table-hover" width="100%">
+				<tbody>
+
+
+				<tr>
+					<td>
+						<label for="j_customerid" class="control-label x85">客户编号</label>
+						<input type="text" name="customerid" id="j_customerid" value="${aftersales.customerid!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+				<tr>
+					<td>
+						<label for="j_aftersalestypeid" class="control-label x85">售后类型</label>
+		                	<select id="j_aftersalestypeid" name="aftersalestypeid" data-toggle="selectpicker" data-width="200"> 
+		                    <%
+                                selected1 = "";                                
+                                for(obj in aftersalestypeList!)
+                                {
+                                if(isEmpty(aftersales.aftersalestypeid) || obj.id != aftersales.aftersalestypeid)
+                                {
+                                selected1="";
+                                }else{
+                                selected1 = "selected='selected'";
+                                }
+                                println("<option value='" + obj.id + "'"+selected1+">"+obj.name+"</option>");
+                                }
+                              %>
+		                	</select>
+		            </td>
+            	</tr>
+
+				<tr>
+					<td>
+						<label for="j_content" class="control-label x85">内容</label>
+						<input type="text" name="content" id="j_content" value="${aftersales.content!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_adddate" class="control-label x85">添加日期</label>
+
+						<input type="text" name="adddate" id="j_adddate" value="${aftersales.adddate!,'yyyy-MM-dd'}" data-toggle="datepicker" data-rule="date" size="20">
+		            </td>
+		        </tr>
+
+
+				<tr>
+					<td>
+						<label for="j_employeename" class="control-label x85">员工姓名</label>
+						<input type="text" name="employeename" id="j_employeename" value="${aftersales.employeename!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				<tr>
+					<td>
+						<label for="j_memo" class="control-label x85">备注</label>
+						<input type="text" name="memo" id="j_memo" value="${aftersales.memo!}" data-rule="" size="20">
+		            </td>
+		        </tr>
+
+				</tbody>
+			</table>
+		</div>
+
+
+	</form>
+</div>
+
+<div class="bjui-pageFooter">
+	<ul>
+		<li><button type="button" class="btn-close" data-icon="close">取消</button></li>
+		<li><button type="submit" class="btn-default" data-icon="save">保存</button></li>
+	</ul>
+</div>
