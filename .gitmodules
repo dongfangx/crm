@@ -7,3 +7,6 @@
 [submodule "src/main/webapp/WEB-INF/sys"]
 	path = src/main/webapp/WEB-INF/sys
 	url = git@git.oschina.net:dongfangx/beetl-bjui-sys.git
+[submodule "src/main/webapp/sys"]
+	path = src/main/webapp/sys
+	url = git@git.oschina.net:dongfangx/sys-resources.git
