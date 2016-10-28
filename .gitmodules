@@ -4,3 +4,6 @@
 [submodule "src/main/java/com/ly/comm"]
 	path = src/main/java/com/ly/comm
 	url = git@git.oschina.net:dongfangx/nutz-common.git
+[submodule "src/main/webapp/WEB-INF/sys"]
+	path = src/main/webapp/WEB-INF/sys
+	url = git@git.oschina.net:dongfangx/beetl-bjui-sys.git
