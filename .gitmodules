@@ -1,0 +1,3 @@
+[submodule "src/main/java/com/ly/sys"]
+	path = src/main/java/com/ly/sys
+	url = git@git.oschina.net:dongfangx/nutz-sys.git
