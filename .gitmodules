@@ -10,3 +10,6 @@
 [submodule "src/main/webapp/sys"]
 	path = src/main/webapp/sys
 	url = git@git.oschina.net:dongfangx/sys-resources.git
+[submodule "src/main/webapp/BJUI"]
+	path = src/main/webapp/BJUI
+	url = git@git.oschina.net:dongfangx/BJUI.git
